@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="icon" href="img/icon.jpg"/>
+    <title>lab № 1</title>
+</head>
+<body>
+
+    <header>
+        <table id = "headTable">
+            <thead>
+            <tr class="headTr">
+                <th colspan="1" class = "headTH">ФИО</th>
+                <th colspan="1" class = "headTH">Группа</th>
+                <th colspan="1" class = "headTH">Вариант</th>
+            </tr>
+            </thead>
+            <tr class="headTr2">
+                <th colspan="1" class = "headTH">Кукольников Егор Сергеевич</th>
+                <th colspan="1" class = "headTH">P3215</th>
+                <th colspan="1" class = "headTH">367346</th>
+            </tr>
+        </table>
+    </header>
+
+    <hr/>
+    <div>
+        <h1>ИНСТРУКЦИЯ! Y ДОЛЖНО БЫТЬ ЧИСЛОМ: -3 < Y < 3 !</h1>
+    </div>
+    <hr/>
+
+    <table class = "mainTable">
+        <tr>
+            <th colspan="1" id="canvas"><canvas id="draw"></canvas></th>
+            <th colspan="1" id = "parameters">
+                <table>
+                    <tr>
+                        <th>
+                            <form>
+                                <fieldset>
+                                    <legend>Координата X:</legend>
+                                    <div>
+                                        <input type="radio" class = "radioInput" id="choice1" name="choiceX"
+                                        value="-4" onclick="setX(this.value)"/>
+                                        <label for="choice1">-4</label>
+
+                                        <input type="radio" class = "radioInput" id="choice2" name="choiceX"
+                                        value="-3" onclick="setX(this.value)"/>
+                                        <label for="choice2">-3</label>
+
+                                        <input type="radio" class = "radioInput" id="choice3" name="choiceX"
+                                        value="-2" onclick="setX(this.value)"/>
+                                        <label for="choice3">-2</label>
+
+                                        <br/>
+
+                                        <input type="radio" class = "radioInput" id="choice4" name="choiceX"
+                                        value="-1" onclick="setX(this.value)"/>
+                                        <label for="choice4">-1</label>
+
+                                        <input type="radio" checked class = "radioInput" id="choice5" name="choiceX"
+                                        value="0" onclick="setX(this.value)"/>
+                                        <label for="choice5">0</label>
+
+                                        <input type="radio" class = "radioInput" id="choice6" name="choiceX"
+                                        value="1" onclick="setX(this.value)"/>
+                                        <label for="choice6">1</label>
+
+                                        <br/>
+
+                                        <input type="radio" class = "radioInput" id="choice7" name="choiceX"
+                                        value="2" onclick="setX(this.value)"/>
+                                        <label for="choice7">2</label>
+
+                                        <input type="radio" class = "radioInput" id="choice8" name="choiceX"
+                                        value="3" onclick="setX(this.value)"/>
+                                        <label for="choice8">3</label>
+
+                                        <input type="radio" class = "radioInput" id="choice9" name="choiceX"
+                                        value="4" onclick="setX(this.value)"/>
+                                        <label for="choice9">4</label>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <br/>
+                            <label class = "likeLegend" for="y_coords">Координата Y:</label>
+                            <input type="text" id="y_coords" min="-3" max="3" name="x_coords" class="my-input"
+                                   oninput="setY(this)"/>
+                            <div class="predupr">Поле должно быть заполнено числом от -3 до 3 не включительно</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <br/>
+                            <form>
+                                <fieldset>
+                                    <legend>Изменение R:</legend>
+                                    <div>
+                                        <input type="checkbox" class = "checkInput" id="choiceCheck1" name="choiceR"
+                                        value="1" onclick="setR(this.value)"/>
+                                        <label for="choiceCheck1">1</label>
+
+                                        <input type="checkbox" checked class = "checkInput" id="choiceCheck2" name="choiceR"
+                                        value="2" onclick="setR(this.value)"/>
+                                        <label for="choiceCheck2">2</label>
+
+                                        <input type="checkbox" class = "checkInput" id="choiceCheck3" name="choiceR"
+                                        value="3" onclick="setR(this.value)"/>
+                                        <label for="choiceCheck3">3</label>
+
+                                        <br/>
+
+                                        <input type="checkbox" class = "checkInput" id="choiceCheck1.5" name="choiceR"
+                                        value="1.5" onclick="setR(this.value)"/>
+                                        <label for="choiceCheck1.5">1.5</label>
+
+                                        <input type="checkbox" class = "checkInput" id="choiceCheck2.5" name="choiceR"
+                                        value="2.5" onclick="setR(this.value)"/>
+                                        <label for="choiceCheck2.5">2.5</label>
+
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <button class="btn" onclick="check_in_php()">Проверка</button>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <button class="btn" onclick="clear_table()">Очистка</button>
+                        </th>
+                    </tr>
+                </table>
+            </th>
+            <th colspan="1" class="lastTH">
+                <div class="lastDiv">
+                <table class = "results">
+                    <thead>
+                        <tr>
+                            <th colspan="1" class = "resulTh">X</th>
+                            <th colspan="1" class = "resulTh">Y</th>
+                            <th colspan="1" class = "resulTh">R</th>
+                            <th colspan="1" class = "resulTh">Результат</th>
+                            <th colspan="1" class = "resulTh">Выполнен в</th>
+                            <th colspan="1" class = "resulTh">Время выполнения</th>
+                        </tr>
+                    </thead>
+                    <tbody id="forPhp">
+                    </tbody>
+                </table>
+                </div>
+            </th>
+        </tr>
+    </table>
+
+
+</body>
+
+<script src="main.js"></script>
+</html>
